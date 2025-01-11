@@ -10,11 +10,12 @@ script_path=$(realpath "$0")
 
 # Function to display help message
 show_help() {
-  echo "Usage: $0 [-r] [-f file_path] [-t frequency] [-h]"
-  echo "  -r              Remove the script from cron jobs"
-  echo "  -f file_path    Specify a custom file path for storing commit messages"
-  echo "  -t frequency    Set the frequency of commits per day (e.g., -t 2 for twice per day)"
-  echo "  -h              Display this help message"
+    echo "Usage: $0 [-r] [-f file_path] [-t frequency] [-h]"
+    echo "  -r              Remove the script from cron jobs"
+    echo "  -f file_path    Specify a custom file path for storing commit messages"
+    echo "  -t frequency    Set the frequency of commits per day (e.g., -t 2 for twice per day)"
+    echo "  -h              Display this help message"
+    echo "  -c commit       Commits to file"
 }
 
 # Function to commit
@@ -94,7 +95,7 @@ else
       echo "Cron job already exists."
     else
       # Add this script to cron if not already added
-      (crontab -l 2>/dev/null; echo "$cron_schedule $script_path") | crontab -
+      (crontab -l 2>/dev/null; echo "$cron_schedule $script_path -c") | crontab -
       echo "Cron job added."
     fi
 fi
