@@ -2,12 +2,12 @@
 
 # Default values
 remove_flag=false
-file_path="./quotes.txt"
 frequency=1  # Default frequency: once per day
 
 # Get the path to the script
 script_path=$(realpath "$0")
 script_dir=$(dirname "$script_path")
+file_path="$script_dir/commit_messages.txt"
 
 
 # Function to display help message
