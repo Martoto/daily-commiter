@@ -27,20 +27,21 @@ while getopts ":rf:t:" opt; do
   esac
 done
 
-if [ "$frequency" -gt 0 ]; then
-  interval=$((24 / frequency))
-  cron_schedule="*/$interval * * * *"
-else
-  echo "Invalid frequency: $frequency" >&2
-  exit 1
-fi
 
-(crontab -l 2>/dev/null; echo "$cron_schedule /home/changeit/Code/10xProgrammer/dailyCommiter.sh") | crontab -
 
 if [ "$remove_flag" = true ]; then
     crontab -l | grep -v "/home/changeit/Code/10xProgrammer/dailyCommiter.sh" | crontab -
     echo "Script removed from cron."
     exit 0
+else
+    if [ "$frequency" -gt 0 ]; then
+        interval=$((24 / frequency))
+        cron_schedule="*/$interval * * * *"
+    else
+        echo "Invalid frequency: $frequency" >&2
+        exit 1
+    fi
+    (crontab -l 2>/dev/null; echo "$cron_schedule /home/changeit/Code/10xProgrammer/dailyCommiter.sh") | crontab -
 fi
 
 current_day=$(date +"%A")
