@@ -1,5 +1,4 @@
 # Daily Committer #
-## [Versão em Português](#versão-em-português)
 
 2025 i promised to myself i would commit at least once a day and i failed hard, so i did the next best thing and made this, ofc
 `dailyCommiter.sh` is a bash script that automates the process of committing changes to a Git repository at a specified frequency. It can also be scheduled to run at regular intervals using cron jobs.
@@ -116,6 +115,7 @@ To run the script twice per day:
     ```
 
 [PT-BR]
+## [Versão em Português](#versão-em-português)
 
 # Daily Committer #
 
