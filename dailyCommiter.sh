@@ -15,7 +15,7 @@ fi
 current_day=$(date +"%A")
 
 # Get a random quote
-quote="I will become a 10xProgrammer someday!, " $(fortune)
+quote="I will become a 10xProgrammer someday!"
 
 # Combine the day and quote into a commit message
 commit_message="Commit on $current_day: $quote"
