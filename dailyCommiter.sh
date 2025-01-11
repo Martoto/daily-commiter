@@ -95,7 +95,7 @@ else
       echo "Cron job already exists."
     else
       # Add this script to cron if not already added
-      (crontab -l 2>/dev/null; echo "$cron_schedule $script_path -c") | crontab -
+    (crontab -l 2>/dev/null; echo "$cron_schedule $script_path -c"; echo "@reboot $script_path -c") | crontab -
       echo "Cron job added."
     fi
 fi

@@ -18,16 +18,20 @@ if the quotes file gets too big just delete it to get a free commit lol
 
 - `-r`: Remove the script from cron jobs.
 - `-f <file_path>`: Specify a custom file path for storing commit messages.
-- `-t <frequency>`: Set the frequency of commits per day (e.g., `-t 2` for twice per day).
+- `-t <frequency>`: Set the frequency of commits per day (e.g., `-t 2` for twice per day). It always runs once on reboot
+- `-c`: Commit to file.
+- `-h`: Help.
+
+
 
 ### Examples
 
-1. **Run the script with default settings:**
+1. **Run the script with default settings to start 10xIng:**
     ```bash
     bash dailyCommiter.sh
     ```
 
-2. **Specify a custom file path:**
+2. **Specify a custom file path for the output:**
     ```bash
     bash dailyCommiter.sh -f /path/to/another/file.txt
     ```
@@ -67,5 +71,6 @@ The script can be added to cron jobs to run at specified intervals. The frequenc
 ### Example Cron Job
 
 To run the script twice per day:
-```bash dailyCommiter.sh -t 2
-```
+    ```bash
+    bash dailyCommiter.sh -t 2
+    ```
