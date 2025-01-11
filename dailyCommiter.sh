@@ -26,7 +26,7 @@ commit_message="Commit on $current_day, ($full_date_time): $quote"
 file_path="/home/changeit/Code/10xProgrammer/quotes.txt"
 
 # Append the quote to the file
-echo "$quote" >> "$file_path"
+echo "$commit_message" >> "$file_path"
 
 
 # Add all changes to git
