@@ -13,12 +13,14 @@ fi
 
 # Get the current day
 current_day=$(date +"%A")
+full_date_time=$(date +"%Y-%m-%d %H:%M:%S")
+
 
 # Get a random quote
 quote="I will become a 10xProgrammer someday!"
 
 # Combine the day and quote into a commit message
-commit_message="Commit on $current_day: $quote"
+commit_message="Commit on $current_day, ($full_date_time): $quote"
 
 # Add all changes to git
 git add .
