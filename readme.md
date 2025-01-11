@@ -10,6 +10,8 @@
 - Supports setting the frequency of commits per day.
 - Can add or remove the script from cron jobs.
 
+if the quotes file gets too big just delete it to get a free commit lol
+
 ## Usage
 
 ### Command-line Options
@@ -65,5 +67,5 @@ The script can be added to cron jobs to run at specified intervals. The frequenc
 ### Example Cron Job
 
 To run the script twice per day:
-```bash
-(crontab -l 2>/dev/null; echo "0 */12 * * * /home/changeit/Code/10xProgrammer/dailyCommiter.sh -t 2") | crontab -
+```bash dailyCommiter.sh -t 2
+```
