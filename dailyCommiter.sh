@@ -22,6 +22,13 @@ quote="I will become a 10xProgrammer someday! For now im just pretending to be o
 # Combine the day and quote into a commit message
 commit_message="Commit on $current_day, ($full_date_time): $quote"
 
+# Define the file path
+file_path="/home/changeit/Code/10xProgrammer/quotes.txt"
+
+# Append the quote to the file
+echo "$quote" >> "$file_path"
+
+
 # Add all changes to git
 git add .
 
