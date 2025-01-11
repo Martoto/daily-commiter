@@ -34,11 +34,11 @@ commit() {
     echo "$commit_message" >> "$file_path"
 
     # Add all changes to git
-    git add .
+    git -C $script_path add .
 
     # Commit with the generated message
-    git commit -m "$commit_message"
-    git push
+    git -C $script_path commit -m "$commit_message"
+    git -C $script_path push
 }
 
 
