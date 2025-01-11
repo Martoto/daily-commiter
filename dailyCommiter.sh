@@ -36,14 +36,21 @@ if [ "$remove_flag" = true ]; then
     exit 0
 else
     if [ "$frequency" -gt 0 ]; then
-        interval=$((24 / frequency))
-        cron_schedule="*/$interval * * * *"
-        (crontab -l 2>/dev/null; echo "$cron_schedule $script_path/dailyCommiter.sh") | crontab -
+      interval=$((24 / frequency))
+      cron_schedule="*/$interval * * * *"
     else
-        echo "Invalid frequency: $frequency" >&2
-        exit 1
+      echo "Invalid frequency: $frequency" >&2
+      exit 1
+    fi
+
+    if crontab -l | grep -q "$script_path"; then
+      echo "Cron job already exists."
+    else
+      (crontab -l 2>/dev/null; echo "$cron_schedule $script_path") | crontab -
+      echo "Cron job added."
     fi
 fi
+
 
 current_day=$(date +"%A")
 full_date_time=$(date +"%Y-%m-%d %H:%M:%S")
