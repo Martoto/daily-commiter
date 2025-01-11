@@ -2,11 +2,13 @@
 
 # Default values
 remove_flag=false
-file_path="/home/changeit/Code/10xProgrammer/quotes.txt"
+file_path="./quotes.txt"
 frequency=1  # Default frequency: once per day
 
 # Get the path to the script
 script_path=$(realpath "$0")
+script_dir=$(dirname "$script_path")
+
 
 # Function to display help message
 show_help() {
@@ -34,11 +36,11 @@ commit() {
     echo "$commit_message" >> "$file_path"
 
     # Add all changes to git
-    git -C $script_path add .
+    git -C $script_dir add .
 
     # Commit with the generated message
-    git -C $script_path commit -m "$commit_message"
-    git -C $script_path push
+    git -C $script_dir commit -m "$commit_message"
+    git -C $script_dir push
 }
 
 
