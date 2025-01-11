@@ -1,10 +1,21 @@
 #!/bin/bash
 
+# Add this script to cron if not already added
+(crontab -l 2>/dev/null; echo "0 9 * * * /home/changeit/Code/10xProgrammer/dailyCommiter.sh") | crontab -
+
+# Check if the script was called with the "remove" argument
+if [ "$1" == "remove" ]; then
+    # Remove this script from cron
+    crontab -l | grep -v "/home/changeit/Code/10xProgrammer/dailyCommiter.sh" | crontab -
+    echo "Script removed from cron."
+    exit 0
+fi
+
 # Get the current day
 current_day=$(date +"%A")
 
 # Get a random quote
-quote=$(curl -s https://api.quotable.io/random | jq -r '.content')
+quote="I will become a 10xProgrammer someday!, " $(fortune)
 
 # Combine the day and quote into a commit message
 commit_message="Commit on $current_day: $quote"
