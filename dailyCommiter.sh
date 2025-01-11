@@ -5,7 +5,6 @@ remove_flag=false
 file_path="./quotes.txt"
 frequency=1  
 
-# Parse command-line options
 while getopts ":rf:t:" opt; do
   case $opt in
     r)
