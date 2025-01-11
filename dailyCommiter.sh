@@ -2,6 +2,7 @@
 
 # Default values
 remove_flag=false
+script_path=$(realpath "$0")
 file_path="./quotes.txt"
 frequency=1  
 
@@ -30,18 +31,18 @@ done
 
 
 if [ "$remove_flag" = true ]; then
-    crontab -l | grep -v "/home/changeit/Code/10xProgrammer/dailyCommiter.sh" | crontab -
+    crontab -l | grep -v "$script_path/dailyCommiter.sh" | crontab -
     echo "Script removed from cron."
     exit 0
 else
     if [ "$frequency" -gt 0 ]; then
         interval=$((24 / frequency))
         cron_schedule="*/$interval * * * *"
+        (crontab -l 2>/dev/null; echo "$cron_schedule $script_path/dailyCommiter.sh") | crontab -
     else
         echo "Invalid frequency: $frequency" >&2
         exit 1
     fi
-    (crontab -l 2>/dev/null; echo "$cron_schedule /home/changeit/Code/10xProgrammer/dailyCommiter.sh") | crontab -
 fi
 
 current_day=$(date +"%A")
