@@ -53,6 +53,40 @@ if the quotes file gets too big just delete it to get a free commit lol
     git clone https://github.com/Martoto/daily-commiter
     cd dailyCommiter
     ```
+1.1. **Install crontab using ur package managers:**
+
+- **Using apt (Debian/Ubuntu):**
+    ```bash
+    sudo apt update
+    sudo apt install cron
+    ```
+
+- **Using yum (CentOS/RHEL):**
+    ```bash
+    sudo yum install cronie
+    sudo systemctl start crond
+    sudo systemctl enable crond
+    ```
+
+- **Using dnf (Fedora):**
+    ```bash
+    sudo dnf install cronie
+    sudo systemctl start crond
+    sudo systemctl enable crond
+    ```
+
+- **Using pacman (Arch Linux):**
+    ```bash
+    sudo pacman -S cronie
+    sudo systemctl start cronie
+    sudo systemctl enable cronie
+    ```
+
+- **Using brew (macOS):**
+    ```bash
+    brew install cronie
+    sudo brew services start cronie
+    ```
 
 2. **Make the script executable:**
     ```bash
@@ -64,9 +98,14 @@ if the quotes file gets too big just delete it to get a free commit lol
     ./dailyCommiter.sh [options]
     ```
 
+3. **Run crontab to see if the job was created correctly:**
+    ```bash
+    crontab -l
+    ```
+
 ## Cron Job
 
-The script can be added to cron jobs to run at specified intervals. The frequency of the cron job is determined by the `-t` option. Default is 1
+The script can be added to cron jobs to run at specified intervals. If you want to add it yourself dont forget to add the -c flag, lest you be swallowed by cronjob recursion
 
 ### Example Cron Job
 
