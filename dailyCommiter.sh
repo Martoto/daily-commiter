@@ -17,7 +17,7 @@ full_date_time=$(date +"%Y-%m-%d %H:%M:%S")
 
 
 # Get a random quote
-quote="I will become a 10xProgrammer someday!"
+quote="I will become a 10xProgrammer someday! For now im just pretending to be one¡"
 
 # Combine the day and quote into a commit message
 commit_message="Commit on $current_day, ($full_date_time): $quote"
