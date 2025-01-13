@@ -86,7 +86,7 @@ if [ "$remove_flag" = true ]; then
 else
     # Calculate the cron schedule based on the frequency
     if [ "$frequency" -gt 0 ]; then
-      interval=$((24 / frequency))
+      interval=$((23 / frequency))
       cron_schedule="0 */$interval * * *"
     else
       echo "Invalid frequency: $frequency" >&2
